@@ -9,9 +9,10 @@ import {UserRepository} from "../../repository/UserRepository";
 
 module.exports = async (user: User) => {
     try {
-      return getCustomRepository(UserRepository).save(user);
+      const u = await getCustomRepository(UserRepository).save(user);
+      return u;
     } catch (e) {
-        console.log(e);
+        console.log('Error', e);
         return Promise.reject({message: e.message + '!!'});
     }
 };
