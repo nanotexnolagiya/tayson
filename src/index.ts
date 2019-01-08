@@ -8,7 +8,6 @@ import * as _ from 'lodash';
 const jayson = require('jayson/promise');
 
 const methods = require('require-dir')('./methods', {recurse: true});
-
 createConnection().then(async connection => {
     const app = express();
     const server = await jayson.server({}, {
